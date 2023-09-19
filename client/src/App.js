@@ -14,9 +14,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path = '/' element={<Homepage/>}/>
-          <Route path = '/view/:id/shoe' element={<Dashboard/>}/>
           <Route path = '/create/new' element={<AddShoeForm/>}/>
-          <Route path = '/edit/:id/shoe' element = {<EditShoe/>}/>
         </Routes>
       </BrowserRouter>
 

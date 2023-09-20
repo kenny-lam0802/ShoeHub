@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route, } from 'react-router-dom';
 import Homepage from './components/Homepage';
 // import Dashboard from './components/Dashboard'
 import AddShoeForm from './components/AddShoeForm';
-// import EditShoe from './components/EditShoe'
+import EditShoeForm from './components/EditShoeForm';
 import './App.css';
 
 function App() {
@@ -17,6 +17,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Homepage shoes={shoes} setShoes={setShoes} />} />
           <Route path='/create/new' element={<AddShoeForm shoes={shoes} setShoes={setShoes} />} />
+          <Route path='/edit/shoe/:id' element={<EditShoeForm/>}/>
         </Routes>
       </BrowserRouter>
 

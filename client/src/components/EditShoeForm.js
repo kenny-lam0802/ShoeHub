@@ -51,46 +51,58 @@ const EditForm = (props) =>{
     // }
 
     return(
-        <div>
+        <div className='formBody'>
             <h1>Edit Shoe entry</h1>
+            <hr/>
             <form onSubmit={updateHandler}>
-                <div className='createForm'>
+            <div className='createForm'>
                     <div>
                         <label>Shoe Name:</label>
+                        <input className='input' type='text' name='shoeName' value={shoe.shoeName} onChange={changeHandler} />
                         {
                             errors.shoeName ?
                                 <p className='errMsg'>{errors.shoeName.message}</p>
                                 :
                                 null
                         }
-                        <input type='text' name='shoeName' value={shoe.shoeName} onChange={changeHandler}/>
                     </div>
                     <div>
                         <label>Shoe Type:</label>
+                        <input className='input' type='text' name='type' value={shoe.type} onChange={changeHandler} />
                         {
                             errors.type ?
                                 <p className='errMsg'>{errors.type.message}</p>
                                 :
                                 null
                         }
-                        <input type='text' name='type' value={shoe.type} onChange={changeHandler} />
                     </div>
                     <div>
-                        <label>Description</label>
+                        <label>Image <span className='span'>(copy image link)</span>:</label>
+                        <input className='input' type='text' name='image' value={shoe.image} onChange={changeHandler} />
                         {
-                            errors.description ?
-                                <p className='errMsg'>{errors.description.message}</p>
+                            errors.image ?
+                                <p className='errMsg'>{errors.image.message}</p>
                                 :
                                 null
                         }
+                    </div>
+                    <div className='description'>
+                        <label className='descLabel'>Description:</label>
                         <textarea rows={5} cols={40} name='description' type="text" value={shoe.description} onChange={changeHandler} />
+                        {
+                            errors.description ?
+                                <p className='errMsgDesc'>{errors.description.message}</p>
+                                :
+                                null
+                        }
                     </div>
                     <div>
-                        <button>Update Shoe</button>
+                        <button className='buttonForm'>Add Shoe</button>
                     </div>
+                    <Link className='returnHome' to={'/'}>Cancel Changes</Link>
+
                 </div>
             </form>
-            <Link to={'/'}>Cancel Changes</Link>
         </div>
     )
 }

@@ -17,7 +17,12 @@ const shoeSchema = new mongoose.Schema({
         type: String,
         required: [true, 'You must describe the shoe'],
         minlength: [3, 'The shoe description must be at lest three letters']
-    }
+    },
+
+    image: {
+        type: String,
+        required: [true, 'You must add an image link'],
+    },
 
 });
 

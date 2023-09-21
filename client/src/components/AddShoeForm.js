@@ -35,45 +35,56 @@ const ShoeForm = ({ shoes, setShoes }) => {
 
 
     return (
-        <div className="App">
-            <h1>Add a Shoe</h1>
+        <div className='formBody'>
+            <h1>Add Shoe</h1>
+            <hr/>
             <form onSubmit={submitHandler}>
                 <div className='createForm'>
                     <div>
                         <label>Shoe Name:</label>
+                        <input className='input' type='text' name='shoeName' value={shoe.shoeName} onChange={changeHandler} />
                         {
                             errors.shoeName ?
                                 <p className='errMsg'>{errors.shoeName.message}</p>
                                 :
                                 null
                         }
-                        <input type='text' name='shoeName' value={shoe.shoeName} onChange={changeHandler} />
                     </div>
                     <div>
                         <label>Shoe Type:</label>
+                        <input className='input' type='text' name='type' value={shoe.type} onChange={changeHandler} />
                         {
                             errors.type ?
                                 <p className='errMsg'>{errors.type.message}</p>
                                 :
                                 null
                         }
-                        <input type='text' name='type' value={shoe.type} onChange={changeHandler} />
                     </div>
                     <div>
-                        <label>Description</label>
+                        <label>Image <span className='span'>(copy image link)</span>:</label>
+                        <input className='input' type='text' name='image' value={shoe.image} onChange={changeHandler} />
                         {
-                            errors.description ?
-                                <p className='errMsg'>{errors.description.message}</p>
+                            errors.image ?
+                                <p className='errMsg'>{errors.image.message}</p>
                                 :
                                 null
                         }
+                    </div>
+                    <div className='description'>
+                        <label className='descLabel'>Description:</label>
                         <textarea rows={5} cols={40} name='description' type="text" value={shoe.description} onChange={changeHandler} />
+                        {
+                            errors.description ?
+                                <p className='errMsgDesc'>{errors.description.message}</p>
+                                :
+                                null
+                        }
                     </div>
                     <div>
-                        <button>Add Shoe</button>
+                        <button className='buttonForm'>Add Shoe</button>
                     </div>
+                    <Link to={"/"} className='returnHome'>Return to Homepage</Link>
                 </div>
-                <Link to={"/"} className='returnHome'>Return to Homepage</Link>
 
             </form>
 

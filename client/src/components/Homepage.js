@@ -29,27 +29,27 @@ const Homepage = ({ shoes, setShoes }) => {
 
 
     return (
-        <div>
-            <div>
-                <h1>Welcome to ShoeHub!</h1>
-                <Link to={'/create/new'}>Add your kicks</Link>
-            </div>
-            {
-                shoes.map((shoe) => (
-                    <div key={shoe._id} className='shoeBox'>
-                        <h2>{shoe.shoeName}</h2>
-                        <div className='shoeInfo'>
-                            <p>{shoe.type}</p>
-                            <p>{shoe.description}</p>
-                        </div>
-                        <div className='shoeActions'>
-                            <button> <Link to={`/edit/shoe/${shoe._id}`}>Edit kicks</Link></button>
-                            <button onClick={() => deleteHandler(shoe._id)}>Delete Kicks</button>
-                        </div>
-
+        <div className='genreBody'>
+                <div className='gridBody'>
+                    <div className='grid-container'>
+                    {
+                        shoes.map((shoe) => (
+                                <div key={shoe._id} className='shoeBox'>
+                                    <img className='pic' src={shoe.image} />
+                                    <h4>{shoe.shoeName}</h4>
+                                    <div className='shoeInfo'>
+                                        <h5 className='type'>{shoe.type}</h5>
+                                        <hr/>
+                                        <p className='desc'>{shoe.description}</p>
+                                        <button className='topButton'> <Link className='link' to={`/edit/shoe/${shoe._id}`}>Edit kick</Link></button>
+                                        <h4>—</h4>
+                                        <button className='button' onClick={() => deleteHandler(shoe._id)}>Delete Kick</button>
+                                    </div>
+                                </div>
+                        ))
+                    }
                     </div>
-                ))
-            }
+                </div>
         </div>
     )
 }
